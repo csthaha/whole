@@ -13,6 +13,7 @@
 
     <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.css">
 </head>
 
 <body>
@@ -192,7 +193,7 @@
         <section class="section-seperate section-expander">
             <p class="section-til">精选</p>
             <ul class="chosen-comment" id="chosen-cpmment">
-                <!-- <li class="chosen-comment__item">
+                <li class="chosen-comment__item">
                     <div class="item-avatal">
                         <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3230445748,1342490172&fm=58" alt="">
                     </div>
@@ -213,17 +214,17 @@
                             <span class="item-detail__time">03-22</span>
                             <div class="pull-right">
                                 <a href="#" class="link comment-like">
-                                    <i class="icon icon-approve"></i>
+                                    <i class="icon icon-approve fa fa-thumbs-o-up"></i>
                                     <span>32423</span>
                                 </a>
                                 <a href="#" class="link comment-reply">
-                                    <i class="icon icon-cpmment"></i>
-                                    <span>2121</span>
+                                    <i class="fa fa-commenting icon-approve icon"></i>
+                                    <span>21221</span>
                                 </a>
                             </div>
                         </div>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </section>
         <!-- tost -->
@@ -265,6 +266,7 @@
 
                     comments(res.data.comment);
                     // console.log(res.data.comment[0].avatal)
+                    // console.log(res.data.comment.length);
                 }
             })
             function star(e) {
@@ -291,6 +293,7 @@
                 setTimeout(() => {
                     $('#toast').css('display', 'none')
                 }, 1500)
+                // console.log('好看')
             })
             //收放详情
             $('.text-expander_button').on('click', function () {
@@ -350,7 +353,6 @@
             function all(a) {
                 $('.all').html(a);
             }
-
             //评论
             function comments(pl) {
                 for (let n of pl) {
@@ -375,11 +377,11 @@
                             <span class="item-detail__time">${n.date}</span>
                             <div class="pull-right">
                                 <a href="#" class="link comment-like">
-                                    <i class="icon icon-approve"></i>
+                                    <i class="icon icon-approve fa fa-thumbs-o-up"></i>
                                     <span>${n.like}</span>
                                 </a>
                                 <a href="#" class="link comment-reply">
-                                    <i class="icon icon-cpmment"></i>
+                                    <i class="icon icon-cpmment fa fa-commenting "></i>
                                     <span>${n.reply}</span>
                                 </a>
                             </div>
@@ -388,6 +390,16 @@
                 </li>`)
                 }
             }
+            //评论点赞
+
+            $('.link .icon').click(function () {
+                if ($('.link .icon').hasClass('fa-thumbs-o-up')) {
+                    $('.link .icon').removeClass('fa-thumbs-o-up');
+                    $('.link .icon').addClass('fa-thumbs-up')
+                }
+            })
+            //取消
+
         })()
     </script>
 </body>
